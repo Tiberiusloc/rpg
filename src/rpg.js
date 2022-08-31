@@ -12,3 +12,9 @@ export class Character {
     this.money = money
   }
 }
+
+export class Job {
+  constructor (inventory, job) {
+  
+  }
+}
