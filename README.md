@@ -2,7 +2,7 @@
 
 #### (Brief Description of Application)
 
-#### By Tiberius Lockett
+#### By Tiberius Lockett and Kelly Bruce
 
 ## Technologies Used
 
