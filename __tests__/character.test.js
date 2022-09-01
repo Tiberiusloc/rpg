@@ -28,8 +28,9 @@ describe('Character', () => {
   });
   
   test('should randomly generate attack number between 1-6 and attack player attack damage to number', () => {
-    expect(player.attackRoll()).toEqual('')
-  })
+    expect(player.attackRoll()).toBeGreaterThanOrEqual(1)
+    expect(player.attackRoll()).toBeLessThanOrEqual(11)
+  });
 });
 
 
@@ -76,6 +77,7 @@ describe ('Merchant', () => {
 
 describe ('rollDice', () => {
   test('should randomly generate between 1-6', () => {
-    expect(rollDice()).toEqual('')
+    expect(rollDice()).toBeGreaterThanOrEqual(1)
+    expect(rollDice()).toBeLessThanOrEqual(6)
   });
 });
