@@ -35,6 +35,11 @@ describe('Character', () => {
   test('should take attack and minus final damage depending on defense', () => {
     expect(player.defend(attackDamage)).toEqual(1)
   });
+  test('should minus hp from player HP', () => {
+    let finalDamage = 4
+    player.hpLoss(finalDamage)
+    expect(player.hp).toEqual(96);
+  });
 });
 
 
