@@ -12,13 +12,13 @@ export class Character {
     this.money = money;
     this.quest = [];
   }
-//  addQuest(array) {
-//    let npc = new Npc ("Queen Kelly", ["run"]);
-//    array.forEach((quest) => {
-//      this.quest.push(npc.quest);
-//    })
-//  }
-
+attackRoll() {
+  let damage = rollDice()
+  console.log(damage)
+  let finalDamage = damage + this.attack;
+  console.log(finalDamage)
+  return finalDamage
+}
 
 }
 
@@ -39,13 +39,15 @@ export class Npc {
     }
   }
 
-  export class Merchant{
-    constructor (name, inventory) {
+export class Merchant{
+  constructor (name, inventory) {
       this.name = name;
       this.inventory = inventory;
     }
-
     
   }
 
-//player.addQuest(npc.quest)
+export function rollDice() {
+  let number = Math.floor((Math.random() * 6) + 1);
+  return number;
+}

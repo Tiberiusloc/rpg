@@ -1,4 +1,4 @@
-import {Character, Job, Npc, Merchant} from './../src/rpg.js';
+import {Character, Job, Npc, Merchant, rollDice} from './../src/rpg.js';
 import {wizard} from './../src/jobs.js';
 import {kelly} from './../src/npc.js';
 
@@ -23,10 +23,16 @@ describe('Character', () => {
 
   let kelly = new Npc ("Queen Kelly", "run");
   test('should push quest from Npc to Character array', () => {
-  expect(kelly.addQuest(player.quest)).toEqual(undefined);
-  expect(player.quest).toEqual(["run"]);
+    expect(kelly.addQuest(player.quest)).toEqual(undefined);
+    expect(player.quest).toEqual(["run"]);
   });
+  
+  test('should randomly generate attack number between 1-6 and attack player attack damage to number', () => {
+    expect(player.attackRoll()).toEqual('')
+  })
 });
+
+
 
 
 describe ('Job', () => {
@@ -36,16 +42,16 @@ describe ('Job', () => {
   });
 
   test('should add inventory based on job', () => {
-  expect(player2.name).toEqual("Tiberius");
-  expect(player2.level).toEqual(1);
-  expect(player2.exp).toEqual(0);
-  expect(player2.inventory).toEqual(["Starter Staff", "Starter Pointy Hat", "Starter Robes",]);
-  expect(player2.alignment).toEqual("Chaotic Evil");
-  expect(player2.job).toEqual("Wizard");
-  expect(player2.hp).toEqual(100);
-  expect(player2.attack).toEqual(5);
-  expect(player2.defense).toEqual(5);
-  expect(player2.money).toEqual(0);
+    expect(player2.name).toEqual("Tiberius");
+    expect(player2.level).toEqual(1);
+    expect(player2.exp).toEqual(0);
+    expect(player2.inventory).toEqual(["Starter Staff", "Starter Pointy Hat", "Starter Robes",]);
+    expect(player2.alignment).toEqual("Chaotic Evil");
+    expect(player2.job).toEqual("Wizard");
+    expect(player2.hp).toEqual(100);
+    expect(player2.attack).toEqual(5);
+    expect(player2.defense).toEqual(5);
+    expect(player2.money).toEqual(0);
   });
 });
 
@@ -65,5 +71,11 @@ describe ('Merchant', () => {
   test("should make a new merchant and view his inventory",() => {
     let merchant = new Merchant ("Shiesty Sean", ["420 Dankeronie"])
     expect(merchant.inventory).toEqual(['420 Dankeronie'])
+  });
+});
+
+describe ('rollDice', () => {
+  test('should randomly generate between 1-6', () => {
+    expect(rollDice()).toEqual('')
   });
 });
