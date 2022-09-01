@@ -31,6 +31,10 @@ describe('Character', () => {
     expect(player.attackRoll()).toBeGreaterThanOrEqual(1)
     expect(player.attackRoll()).toBeLessThanOrEqual(11)
   });
+    let attackDamage = 6;
+  test('should take attack and minus final damage depending on defense', () => {
+    expect(player.defend(attackDamage)).toEqual(1)
+  });
 });
 
 
@@ -88,4 +92,4 @@ describe ('Enemy', () => {
     let enemy = new Enemy ("TDD", 1, 2, ["Beginner Sword"], 5);
     expect(enemy.hp).toEqual(2);
   });
-  });
+});

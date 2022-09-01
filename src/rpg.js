@@ -14,10 +14,22 @@ export class Character {
   }
 attackRoll() {
   let damage = rollDice()
-  console.log(damage)
   let finalDamage = damage + this.attack;
-  console.log(finalDamage)
+  console.log(damage + " This is damage")
+  console.log(this.attack + " This is this.attack")
+  console.log(finalDamage + "This is finalDamage line 20")
   return finalDamage
+}
+defend(attackDamage) {
+  console.log(attackDamage + " This is attackDamage")
+  let finalDamage = attackDamage - this.defense;
+  console.log(this.defense + " This is this.defense")
+  console.log(finalDamage + " This finalDamage line 27")
+  return finalDamage
+}
+hpLoss(finalDamage) {
+  console.log(finalDamage)
+  return this.hp -= finalDamage
 }
 
 }
@@ -59,5 +71,10 @@ export class Enemy {
     this.hp = hp;
     this.inventory = inventory;
     this.attack = attack;
+}
+attackRoll() {
+  let damage = rollDice()
+  let finalEnemyDamage = damage + this.attack;
+  return finalEnemyDamage;
 }
 }
