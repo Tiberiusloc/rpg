@@ -39,4 +39,9 @@ export class Npc {
     }
   }
 
+  export class Merchant{
+
+    
+  }
+
 //player.addQuest(npc.quest)

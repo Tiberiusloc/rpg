@@ -1,4 +1,4 @@
-import {Character, Job, Npc,} from './../src/rpg.js';
+import {Character, Job, Npc, Merchant} from './../src/rpg.js';
 import {wizard} from './../src/jobs.js';
 import {kelly} from './../src/npc.js';
 
@@ -19,13 +19,13 @@ describe('Character', () => {
     expect(player.attack).toEqual(5);
     expect(player.defense).toEqual(5);
     expect(player.money).toEqual(0);
-  })
+  });
 
   let kelly = new Npc ("Queen Kelly", "run");
   test('should push quest from Npc to Character array', () => {
   expect(kelly.addQuest(player.quest)).toEqual(undefined);
   expect(player.quest).toEqual(["run"]);
-});
+  });
 });
 
 
@@ -55,5 +55,18 @@ describe ('Npc', () => {
   test("should be able to see new NPC name and quest", () => {
     expect(npc.name).toEqual("Queen Kelly");
     expect(npc.quest).toEqual(['run']);
+  });
 });
+
+describe ('Merchant', () => {
+  let merchant;
+  beforeEach(()=> {
+  });
+  test("should make a new merchant with inventory",() => {
+    let merchant = new Merchant ("Shiesty Sean", ["420 Dankeronie"])
+    expect(merchant.inventory).toEqual(['420 Dankeronie'])
+  });
 });
+
+
+// new Merchant ("Shiesty Sean", ["420 Dankeronie"])
