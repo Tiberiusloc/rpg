@@ -1,4 +1,4 @@
-import {Character, Job, Npc, Merchant, rollDice} from './../src/rpg.js';
+import {Character, Job, Npc, Merchant, rollDice, Enemy} from './../src/rpg.js';
 import {wizard} from './../src/jobs.js';
 import {kelly} from './../src/npc.js';
 
@@ -81,3 +81,11 @@ describe ('rollDice', () => {
     expect(rollDice()).toBeLessThanOrEqual(6)
   });
 });
+
+describe ('Enemy', () => {
+  let enemy;
+  test('should make an enemy with specific parameters',() => {
+    let enemy = new Enemy ("TDD", 1, 2, ["Beginner Sword"], 5)
+    expect(enemy.hp).toEqual(10);
+  });
+  });
