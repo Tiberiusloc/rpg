@@ -62,11 +62,8 @@ describe ('Merchant', () => {
   let merchant;
   beforeEach(()=> {
   });
-  test("should make a new merchant with inventory",() => {
+  test("should make a new merchant and view his inventory",() => {
     let merchant = new Merchant ("Shiesty Sean", ["420 Dankeronie"])
     expect(merchant.inventory).toEqual(['420 Dankeronie'])
   });
 });
-
-
-// new Merchant ("Shiesty Sean", ["420 Dankeronie"])

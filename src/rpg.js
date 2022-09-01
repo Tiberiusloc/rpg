@@ -1,15 +1,15 @@
 export class Character {
   constructor(name, level, exp, inventory, alignment, job, hp, attack, defense, money,) {
-    this.name = name
-    this.level = level
-    this.exp = exp
-    this.inventory = inventory
-    this.alignment = alignment
-    this.job = job
-    this.hp = hp
-    this.attack = attack
-    this.defense = defense
-    this.money = money
+    this.name = name;
+    this.level = level;
+    this.exp = exp;
+    this.inventory = inventory;
+    this.alignment = alignment;
+    this.job = job;
+    this.hp = hp;
+    this.attack = attack;
+    this.defense = defense;
+    this.money = money;
     this.quest = [];
   }
 //  addQuest(array) {
@@ -24,15 +24,15 @@ export class Character {
 
 export class Job {
   constructor (job, inventory) {
-  this.job = job
-  this.inventory = inventory
+  this.job = job;
+  this.inventory = inventory;
   }
 }
 
 export class Npc {
   constructor (name, quest) {
-  this.name = name
-  this.quest = quest
+  this.name = name;
+  this.quest = quest;
   }
   addQuest(quest) {
     quest.push(this.quest)
@@ -40,6 +40,10 @@ export class Npc {
   }
 
   export class Merchant{
+    constructor (name, inventory) {
+      this.name = name;
+      this.inventory = inventory;
+    }
 
     
   }
