@@ -53,5 +53,11 @@ export function rollDice() {
 }
 
 export class Enemy {
-
+  constructor(name, level, hp, inventory, attack) {
+    this.name = name;
+    this.level = level;
+    this.hp = hp;
+    this.inventory = inventory;
+    this.attack = attack;
+}
 }

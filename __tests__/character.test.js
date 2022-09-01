@@ -85,7 +85,7 @@ describe ('rollDice', () => {
 describe ('Enemy', () => {
   let enemy;
   test('should make an enemy with specific parameters',() => {
-    let enemy = new Enemy ("TDD", 1, 2, ["Beginner Sword"], 5)
-    expect(enemy.hp).toEqual(10);
+    let enemy = new Enemy ("TDD", 1, 2, ["Beginner Sword"], 5);
+    expect(enemy.hp).toEqual(2);
   });
   });
