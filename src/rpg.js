@@ -12,11 +12,14 @@ export class Character {
     this.money = money
     this.quest = [];
   }
-  addQuest(array) {
-    array.forEach((quest) => {
-      this.quest.push(quest);
-    })
-  }
+//  addQuest(array) {
+//    let npc = new Npc ("Queen Kelly", ["run"]);
+//    array.forEach((quest) => {
+//      this.quest.push(npc.quest);
+//    })
+//  }
+
+
 }
 
 export class Job {
@@ -31,4 +34,9 @@ export class Npc {
   this.name = name
   this.quest = quest
   }
-}
+  addQuest(quest) {
+    quest.push(this.quest)
+    }
+  }
+
+//player.addQuest(npc.quest)
