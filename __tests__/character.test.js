@@ -1,11 +1,12 @@
 import {Character, Job, Npc, Merchant, rollDice, Enemy} from './../src/rpg.js';
 import {wizard} from './../src/jobs.js';
 import {kelly} from './../src/npc.js';
+import {enemy} from './../src/enemy.js';
 
 describe('Character', () => {
   let player;
   beforeEach(() => {
-    player = new Character("Kelly", 1, 0, ["potion"], "Chaotic Good", "Wizard", 100 , 5, 5, 0)
+    player = new Character("Kelly", 1, 0, ["potion"], "Chaotic Good", "Wizard", 100 , 5, 5, 0);
   });
   
   test('Should make a character with specific parameters', () => {
@@ -28,21 +29,31 @@ describe('Character', () => {
   });
   
   test('should randomly generate attack number between 1-6 and attack player attack damage to number', () => {
-    expect(player.attackRoll()).toBeGreaterThanOrEqual(1)
-    expect(player.attackRoll()).toBeLessThanOrEqual(11)
+    expect(player.attackRoll()).toBeGreaterThanOrEqual(1);
+    expect(player.attackRoll()).toBeLessThanOrEqual(11);
   });
     let attackDamage = 6;
   test('should take attack and minus final damage depending on defense', () => {
-    expect(player.defend(attackDamage)).toEqual(1)
+    expect(player.defend(attackDamage)).toEqual(1);
   });
   test('should minus hp from player HP', () => {
-    let finalDamage = 4
-    player.hpLoss(finalDamage)
+    let finalDamage = 4;
+    player.hpLoss(finalDamage);
     expect(player.hp).toEqual(96);
   });
+    let enemy = new Enemy ("TDD", 1, 2, ["Beginner Sword"], 5);
+  test('should minus defense from player defense based off enemys attack', () =>{
+    expect(player.defend(enemy.attack)).toEqual(0);
+  });
+  test('take HP away from player based off attack from enemy' , () => {
+    player.hpLoss(player.defend(enemy.attack));
+    expect(player.hp).toEqual(100);
+  });
+  test('take HP away from player based off attack and roll damage from enemy', () => {
+    player.hpLoss(player.defend(enemy.attackRoll()))
+    expect(player.hp).toBeGreaterThanOrEqual(89)
+  });
 });
-
-
 
 
 describe ('Job', () => {
@@ -79,20 +90,22 @@ describe ('Merchant', () => {
   beforeEach(()=> {
   });
   test("should make a new merchant and view his inventory",() => {
-    let merchant = new Merchant ("Shiesty Sean", ["420 Dankeronie"])
-    expect(merchant.inventory).toEqual(['420 Dankeronie'])
+    let merchant = new Merchant ("Shiesty Sean", ["420 Dankeronie"]);
+    expect(merchant.inventory).toEqual(['420 Dankeronie']);
   });
 });
 
 describe ('rollDice', () => {
   test('should randomly generate between 1-6', () => {
-    expect(rollDice()).toBeGreaterThanOrEqual(1)
-    expect(rollDice()).toBeLessThanOrEqual(6)
+    expect(rollDice()).toBeGreaterThanOrEqual(1);
+    expect(rollDice()).toBeLessThanOrEqual(6);
   });
 });
 
 describe ('Enemy', () => {
   let enemy;
+  beforeEach(()=> {
+  });
   test('should make an enemy with specific parameters',() => {
     let enemy = new Enemy ("TDD", 1, 2, ["Beginner Sword"], 5);
     expect(enemy.hp).toEqual(2);
